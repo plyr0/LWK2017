@@ -18,7 +18,7 @@ public:
 		cv::imwrite("./output.png", gray_image);
 
 		// Random
-		cv::Mat R = cv::Mat(cv::Size(image.cols, image.rows), image.type());
+		cv::Mat R = cv::Mat(image.size(), image.type());
 		randu(R, cv::Scalar::all(0), cv::Scalar::all(255));
 		cv::imshow("Rand", R);
 
