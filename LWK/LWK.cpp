@@ -20,26 +20,32 @@ int main(int argc, char** argv)
 	}
 	cv::imshow("Original", image);
 	
-	cv::Mat gray_image;
+	// Gray
+	//cv::Mat gray_image;
 	//cv::cvtColor(image, gray_image, CV_BGR2GRAY);
-	//cv::Mat R = cv::Mat(cv::Size(image.cols, image.rows), image.type());
-	//randu(R, cv::Scalar::all(0), cv::Scalar::all(255));
 	//cv::imshow("Gray", gray_image);
 	//cv::imwrite("./output.png", gray_image);
+	
+	// Random
+	//cv::Mat R = cv::Mat(cv::Size(image.cols, image.rows), image.type());
+	//randu(R, cv::Scalar::all(0), cv::Scalar::all(255));
+	//cv::imshow("Rand", R);
 
+	// Zadanie 5
 	vector<cv::Mat> colors(3);
 	cv::split(image, colors);	
 	cv::imshow("Blue", colors[0]);
 	cv::imshow("Red", colors[1]);
 	cv::imshow("Green", colors[2]);
 	
-	vector<cv::Mat> clash;
+	// Clash colors
+	/*vector<cv::Mat> clash;
 	clash.push_back(colors[2]);
 	clash.push_back(colors[0]);
 	clash.push_back(colors[1]);
 	cv::Mat mat_clash;
 	cv::merge(clash, mat_clash);
-	cv::imshow("Clash", mat_clash);
+	cv::imshow("Clash", mat_clash);*/
 
 
 	cv::waitKey();
