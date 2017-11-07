@@ -1,16 +1,12 @@
 #pragma once
 
 #include "stdafx.h"
-#include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
-#include <iostream>
 #include "Cwiczenia2zadanie5.h"
 
 class Cwiczenia2random {
 public:
-	void run(cv::Mat image) {
+	void run(cv::Mat image) const
+	{
 		// Gray
 		cv::Mat gray_image;
 		cv::cvtColor(image, gray_image, CV_BGR2GRAY);
@@ -32,5 +28,6 @@ public:
 		cv::Mat mat_clash;
 		cv::merge(clash, mat_clash);
 		cv::imshow("Clash", mat_clash);
+		cv::waitKey();
 	}
 };

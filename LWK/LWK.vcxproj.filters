@@ -25,10 +25,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cwiczenia2random.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cwiczenia2zadanie6.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -38,11 +38,14 @@
     <ClCompile Include="LWK.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cwiczenia2zadanie5.h">
+    <ClCompile Include="Cwiczenia3zadanie1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cwiczenia2zadanie5.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
     <ClCompile Include="Cwiczenia3zadanie1.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
