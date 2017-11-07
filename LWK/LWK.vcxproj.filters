@@ -41,5 +41,8 @@
     <ClCompile Include="Cwiczenia2zadanie5.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cwiczenia3zadanie1.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
