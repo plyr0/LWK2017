@@ -4,7 +4,7 @@
 
 #include "stdafx.h"
 
-class Cwiczenia2zadanie5 {
+class cw2_zad5 {
 public:
 	std::vector<cv::Mat> run(const cv::Mat image) const
 	{

@@ -1,18 +1,37 @@
-#include "stdafx.h"
-#include "Cwiczenia3zadanie1.h"
+#pragma once
 
-Cwiczenia3zadanie1::Cwiczenia3zadanie1(cv::Mat image) : name("filter"), filter(3), size(27)
+#include "stdafx.h"
+
+class cw3_zad1
+{
+public:
+	char* name;
+	cv::Mat input;
+	cv::Mat output;
+	int filter;
+	int size;
+
+	cw3_zad1(cv::Mat image);
+
+	void run();
+
+	static void update(int pos, void* that);
+
+	void real_update();
+};
+
+inline cw3_zad1::cw3_zad1(cv::Mat image) : name("filter"), filter(3), size(27)
 {
 	input = image.clone();
 	output = cv::Mat(input.size(), input.type());
 }
 
-void Cwiczenia3zadanie1::run()
+inline void cw3_zad1::run()
 {
 	cv::namedWindow(name);
 	cv::createTrackbar("Filter", name, &filter, 3, update, this);
 	cv::createTrackbar("Size", name, &size, 47, update, this);
-	realUpdate();
+	real_update();
 	while (true)
 	{
 		if (char(cv::waitKey(30) == 27))
@@ -22,10 +41,10 @@ void Cwiczenia3zadanie1::run()
 	}
 }
 
-void Cwiczenia3zadanie1::update(int, void* that)
+inline void cw3_zad1::update(int, void* that)
 {
-	auto self = static_cast<Cwiczenia3zadanie1*>(that);
-	switch(self->filter)
+	auto self = static_cast<cw3_zad1*>(that);
+	switch (self->filter)
 	{
 	case 0: std::cout << "blur"; break;
 	case 1: std::cout << "GaussianBlur"; break;
@@ -35,12 +54,12 @@ void Cwiczenia3zadanie1::update(int, void* that)
 		throw "Unknown filter";
 	}
 	std::cout << " " << self->size << std::endl;
-	self->realUpdate();
+	self->real_update();
 }
 
-void Cwiczenia3zadanie1::realUpdate()
+inline void cw3_zad1::real_update()
 {
-	if(!size) size++;
+	if (!size) size++;
 	switch (filter)
 	{
 	case 0:

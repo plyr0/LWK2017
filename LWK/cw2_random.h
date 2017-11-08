@@ -1,9 +1,9 @@
 #pragma once
 
 #include "stdafx.h"
-#include "Cwiczenia2zadanie5.h"
+#include "cw2_zad5.h"
 
-class Cwiczenia2random {
+class cw2_random {
 public:
 	void run(cv::Mat image) const
 	{
@@ -19,7 +19,7 @@ public:
 		cv::imshow("Rand", R);
 
 		// Clash colors
-		std::vector<cv::Mat> colors = Cwiczenia2zadanie5().run(image);
+		std::vector<cv::Mat> colors = cw2_zad5().run(image);
 
 		std::vector<cv::Mat> clash;
 		clash.push_back(colors[2]);

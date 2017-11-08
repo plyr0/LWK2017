@@ -24,10 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cwiczenia2random.h">
+    <ClInclude Include="cw2_random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cwiczenia2zadanie6.h">
+    <ClInclude Include="cw2_zad6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cw3_zad2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,13 +41,10 @@
     <ClCompile Include="LWK.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cwiczenia3zadanie1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cwiczenia2zadanie5.h">
+    <ClCompile Include="cw2_zad5.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cwiczenia3zadanie1.h">
+    <ClCompile Include="cw3_zad1.h">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>

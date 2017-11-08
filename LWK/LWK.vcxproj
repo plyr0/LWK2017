@@ -59,7 +59,6 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="OpenCV_Debug.props" />
     <Import Project="OpenCv.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,15 +150,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cwiczenia2random.h" />
-    <ClInclude Include="Cwiczenia2zadanie6.h" />
+    <ClInclude Include="cw2_random.h" />
+    <ClInclude Include="cw2_zad6.h" />
+    <ClInclude Include="cw3_zad2.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cwiczenia2zadanie5.h" />
-    <ClCompile Include="Cwiczenia3zadanie1.cpp" />
-    <ClCompile Include="Cwiczenia3zadanie1.h" />
+    <ClCompile Include="cw2_zad5.h" />
+    <ClCompile Include="cw3_zad1.h" />
     <ClCompile Include="LWK.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
