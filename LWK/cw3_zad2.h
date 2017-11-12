@@ -10,7 +10,6 @@ public:
 	cv::Mat output;
 	int hue1;
 	int hue2;
-	int mode;
 	char* name2;
 	int threshold;
 	int max_val;

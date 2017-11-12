@@ -2,7 +2,7 @@
 #include "cw3_zad2.h"
 
 cw3_zad2::cw3_zad2(const cv::Mat image) 
-: name("cw3zad2-hsv"), hue1(100), hue2(120), mode(0), name2("cw3zad2 - threshold"), threshold(128), 
+: name("cw3zad2-hsv"), hue1(100), hue2(120), name2("cw3zad2 - threshold"), threshold(128), 
   max_val(255), threshold_type(7), otsu(0)
 {
 	std::cout << "im " << image.channels() << " " << image.type() << std::endl;
@@ -17,13 +17,13 @@ cw3_zad2::cw3_zad2(const cv::Mat image)
 void cw3_zad2::run()
 {
 	cv::namedWindow(name);
-	cv::createTrackbar("Start", name, &hue1, 360, update, this);
-	cv::createTrackbar("End", name, &hue2, 360, update, this);
+	cv::createTrackbar("Start", name, &hue1, 179, update, this);
+	cv::createTrackbar("End", name, &hue2, 179, update, this);
 	update(0, this);
-
+	
 	cv::namedWindow(name2);
 	cv::createTrackbar("Type", name2, &threshold_type, 7, update2, this);
-	cv::createTrackbar("Otsu/mthd", name2, &otsu, 1, update2, this);
+	cv::createTrackbar("Otsu/mthd", name2, &otsu, 2, update2, this);
 	cv::createTrackbar("Trhld/size", name2, &threshold, 255, update2, this);
 	cv::createTrackbar("Max value", name2, &max_val, 255, update2, this);
 	update2(0, this);
@@ -40,16 +40,12 @@ void cw3_zad2::run()
 void cw3_zad2::update(int, void* that)
 {
 	const auto self = static_cast<cw3_zad2*>(that);
-	if (self->mode == 1) 
-	{
-		std::vector<cv::Mat> colors(3);
-		cv::split(self->input, colors);
-		
-
-
-		std::cout << " " << self->hue1 << " " << self->hue2 << std::endl;
-		cv::imshow(self->name, self->output);
-	}
+	std::vector<cv::Mat> colors;
+	cv::split(self->input, colors);
+	cv::threshold(colors[0], colors[0], self->hue1, 255, cv::THRESH_TOZERO);
+	cv::merge(colors, self->output);
+	//cv::imshow(self->name, colors[0]);
+	cv::imshow(self->name, self->output);
 }
 
 void cw3_zad2::update2(int, void* that)
@@ -90,16 +86,23 @@ void cw3_zad2::update2(int, void* that)
 	default: throw "WTF";
 	}
 	if (self->threshold_type < 5) {
-		if (self->otsu) {
-			threshold_type |= cv::THRESH_OTSU;
-			std::cout << " | THRESH_OTSU";
-			self->threshold = 0;
-		}
-		const auto otsu_val = cv::threshold(gray, self->output, self->threshold, self->max_val, threshold_type);
-		if (self->otsu)
+		if (!self->otsu) {
+			cv::threshold(gray, self->output, self->threshold, self->max_val, threshold_type);
+		} 
+		else {
+			if (self->otsu == 1) {
+				threshold_type |= cv::THRESH_OTSU;
+				std::cout << " | THRESH_OTSU";
+			}
+			else if (self->otsu == 2) {
+				threshold_type |= cv::THRESH_TRIANGLE;
+				std::cout << " | THRESH_TRIANGLE";
+			}
+			const auto otsu_val = cv::threshold(gray, self->output, 0, self->max_val, threshold_type);
 			std::cout << " Otsu threshold: " << otsu_val;
-	} else 
-	{
+		}
+	}  
+	else  {
 		const auto method = self->otsu ? cv::ADAPTIVE_THRESH_GAUSSIAN_C : cv::ADAPTIVE_THRESH_MEAN_C;
 		const auto type = self->threshold_type==5 ? cv::THRESH_BINARY : cv::THRESH_BINARY_INV;
 		const auto blockSize = (self->threshold+1) * 2 + 1;

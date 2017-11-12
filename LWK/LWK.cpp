@@ -1,9 +1,10 @@
 #include "stdafx.h"
 
-#include "cw3_zad1.h"
 #include "cw2_random.h"
 #include "cw2_zad6.h"
+#include "cw3_zad1.h"
 #include "cw3_zad2.h"
+#include "cw3_zad3.h"
 
 int main(int argc, char** argv)
 {
@@ -16,7 +17,7 @@ int main(int argc, char** argv)
 		return -1;
 	}
 	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32\n";
-	int k=32;
+	int k=33;
 	//std::cin >> k;
 	switch (k) {
 	case 0:
@@ -38,6 +39,9 @@ int main(int argc, char** argv)
 		break;
 	case 32:
 		cw3_zad2(image).run();
+		break;
+	case 33:
+		cw3_zad3(image).run();
 		break;
 	default:
 		break;
