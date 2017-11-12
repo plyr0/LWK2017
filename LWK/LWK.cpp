@@ -9,6 +9,7 @@
 int main(int argc, char** argv)
 {
 	cv::Mat image = cv::imread("Lenna.png", CV_LOAD_IMAGE_UNCHANGED);
+	//cv::imshow("original", image);
 
 	if (image.empty())
 	{
@@ -16,9 +17,9 @@ int main(int argc, char** argv)
 		std::cin.get();
 		return -1;
 	}
-	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32\n";
-	int k=33;
-	//std::cin >> k;
+	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32, 33\n";
+	int k;
+	std::cin >> k;
 	switch (k) {
 	case 0:
 		imshow("Original", image);

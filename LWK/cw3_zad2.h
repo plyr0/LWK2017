@@ -21,5 +21,8 @@ public:
 	void run();
 
 	static void update(int, void* that);
+	static void update_a(int, void* that);
+	static void update_b(int, void* that);
+
 	static void update2(int, void* that);
 };

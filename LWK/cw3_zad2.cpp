@@ -2,23 +2,18 @@
 #include "cw3_zad2.h"
 
 cw3_zad2::cw3_zad2(const cv::Mat image) 
-: name("cw3zad2-hsv"), hue1(100), hue2(120), name2("cw3zad2 - threshold"), threshold(128), 
+: name("cw3zad2-hsv"), hue1(97), hue2(176), name2("cw3zad2 - threshold"), threshold(128), 
   max_val(255), threshold_type(7), otsu(0)
 {
-	std::cout << "im " << image.channels() << " " << image.type() << std::endl;
-
-	cv::cvtColor(image, input, CV_BGR2HSV);
-	std::cout << "in " << input.channels() << " " << input.type() << std::endl;
-
+	input = image.clone();
 	output = cv::Mat(input.size(), input.type());
-	std::cout << "out " << output.channels() << " " << output.type() << std::endl;
 }
 
 void cw3_zad2::run()
 {
 	cv::namedWindow(name);
-	cv::createTrackbar("Start", name, &hue1, 179, update, this);
-	cv::createTrackbar("End", name, &hue2, 179, update, this);
+	cv::createTrackbar("Start", name, &hue1, 179, update_a, this);
+	cv::createTrackbar("End", name, &hue2, 179, update_b, this);
 	update(0, this);
 	
 	cv::namedWindow(name2);
@@ -37,14 +32,42 @@ void cw3_zad2::run()
 	}
 }
 
-void cw3_zad2::update(int, void* that)
+void cw3_zad2::update_a(int, void* that)
 {
 	const auto self = static_cast<cw3_zad2*>(that);
-	std::vector<cv::Mat> colors;
-	cv::split(self->input, colors);
-	cv::threshold(colors[0], colors[0], self->hue1, 255, cv::THRESH_TOZERO);
-	cv::merge(colors, self->output);
-	//cv::imshow(self->name, colors[0]);
+	if(self->hue1 > self->hue2)
+	{
+		self->hue2 = self->hue1;
+		cvSetTrackbarPos("End", self->name, self->hue2);
+	}
+	update(0, that);
+}
+
+void cw3_zad2::update_b(int, void* that)
+{
+	const auto self = static_cast<cw3_zad2*>(that);
+	if (self->hue2 < self->hue1)
+	{
+		self->hue1 = self->hue2;
+		cvSetTrackbarPos("Start", self->name, self->hue1);
+	}
+	update(0, that);
+}
+
+void cw3_zad2::update(int, void* that)
+{
+	const auto self = static_cast<cw3_zad2*>(that);	
+	cv::cvtColor(self->input, self->output, CV_RGB2HSV);
+
+	cv::Mat mask;
+	const auto lowerb = cv::Scalar(self->hue1, 0, 0);
+	const auto upperb = cv::Scalar(self->hue2, 255, 255);
+	cv::inRange(self->output, lowerb, upperb, mask);
+
+	cv::Mat masked;
+	self->output.copyTo(masked, mask);
+	
+	cv::cvtColor(masked, self->output, CV_HSV2RGB);
 	cv::imshow(self->name, self->output);
 }
 

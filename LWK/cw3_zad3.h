@@ -47,11 +47,16 @@ inline void cw3_zad3::update(int, void* that)
 {
 	auto self = static_cast<cw3_zad3*>(that);
 
-	if (self->gray) cv::cvtColor(self->input, self->output, cv::COLOR_BGR2GRAY);
+	if (self->gray) {
+		cv::cvtColor(self->input, self->output, cv::COLOR_BGR2GRAY);
+	} else
+	{
+		self->output = self->input.clone();
+	}
 
 	const auto x = (self->fx + 1) / 10.0;
 	const auto y = (self->fy + 1) / 10.0;
-	cv::resize(self->output, self->output, cv::Size(0, 0), x, y, cv::INTER_LANCZOS4);
+	cv::resize(self->output, self->output, cv::Size(0, 0), x, y, cv::INTER_LINEAR);
 
 	const cv::Point2f center(self->output.cols / 2, self->output.rows / 2);
 	const cv::Mat rotation =  cv::getRotationMatrix2D(center, self->rot, 1.0);
