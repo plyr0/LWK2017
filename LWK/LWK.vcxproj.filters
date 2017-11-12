@@ -47,5 +47,8 @@
     <ClCompile Include="cw3_zad1.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="cw3_zad2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

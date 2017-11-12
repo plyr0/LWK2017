@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="cw2_zad5.h" />
     <ClCompile Include="cw3_zad1.h" />
+    <ClCompile Include="cw3_zad2.cpp" />
     <ClCompile Include="LWK.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

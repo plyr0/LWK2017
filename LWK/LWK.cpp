@@ -16,8 +16,8 @@ int main(int argc, char** argv)
 		return -1;
 	}
 	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32\n";
-	int k;
-	std::cin >> k;
+	int k=32;
+	//std::cin >> k;
 	switch (k) {
 	case 0:
 		imshow("Original", image);
