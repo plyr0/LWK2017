@@ -154,6 +154,7 @@
     <ClInclude Include="cw2_zad6.h" />
     <ClInclude Include="cw3_zad2.h" />
     <ClInclude Include="cw3_zad3.h" />
+    <ClInclude Include="cw4_zad1.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClCompile Include="cw2_zad5.h" />
     <ClCompile Include="cw3_zad1.h" />
     <ClCompile Include="cw3_zad2.cpp" />
+    <ClCompile Include="cw4_zad1.cpp" />
     <ClCompile Include="LWK.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -168,6 +170,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Lenna.png" />
+    <Image Include="test1.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
