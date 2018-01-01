@@ -6,6 +6,7 @@
 #include "cw3_zad2.h"
 #include "cw3_zad3.h"
 #include "cw4_zad1.h"
+#include "cw4_zad2.h"
 
 int main(int argc, char** argv)
 {
@@ -18,9 +19,9 @@ int main(int argc, char** argv)
 		std::cin.get();
 		return -1;
 	}
-	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32, 33, 41\n";
-	int k=41;
-	//std::cin >> k;
+	std::cout << "xy - nr zadania, np: 25 = cw2zad5\n0, 20, 25, 26, 31, 32, 33, 41, 42\n";
+	int k;
+	std::cin >> k;
 	switch (k) {
 	case 0:
 		imshow("Original", image);
@@ -47,6 +48,9 @@ int main(int argc, char** argv)
 		break;
 	case 41:
 		cw4_zad1().run();
+		break;
+	case 42:
+		cw4_zad2().run();
 		break;
 	default:
 		break;

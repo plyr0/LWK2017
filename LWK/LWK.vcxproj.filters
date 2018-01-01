@@ -39,6 +39,9 @@
     <ClInclude Include="cw4_zad1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cw4_zad2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,6 +60,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cw4_zad1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cw4_zad2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

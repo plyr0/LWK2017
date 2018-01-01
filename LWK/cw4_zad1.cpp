@@ -2,7 +2,7 @@
 #include "cw4_zad1.h"
 
 
-cw4_zad1::cw4_zad1() : name("cw4 hist"), shape(cv::MORPH_RECT), mode(0), size(0)
+cw4_zad1::cw4_zad1() : name("cw4 morph"), shape(cv::MORPH_RECT), mode(0), size(0)
 {
 	input = imread("test1.jpg", cv::COLOR_RGB2GRAY);
 	std::cout << input.channels() << " " <<  input.type() << std::endl;
